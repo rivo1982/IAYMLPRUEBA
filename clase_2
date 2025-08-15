@@ -1,0 +1,32 @@
+import pandas as pd
+# 1. EXTRACT - Crear datos de ejemplo (normalmente leerías un CSV o base de datos)
+
+data = {
+
+ 'Nombre': ['Ana', 'Luis', 'Carlos', 'Marta'],
+
+ 'Edad': [23, 35, 45, 29],
+
+ 'Ciudad': ['Santiago', 'Valparaíso', 'Concepción', 'Antofagasta']
+
+}
+
+df = pd.DataFrame(data)
+
+print("Datos originales:")
+
+print(df)
+
+# 2. TRANSFORM - Filtrar personas mayores de 30 años
+
+df_filtrado = df[df['Edad'] > 30]
+
+print("\nDatos filtrados (Edad > 30):")
+
+print(df_filtrado)
+
+# 3. LOAD - Guardar en un nuevo archivo Excel
+
+df_filtrado.to_excel("resultado_etl.xlsx", index=False)
+
+print("\nArchivo 'resultado_etl.xlsx' creado con éxito.")
